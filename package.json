@@ -1,0 +1,22 @@
+{
+  "name": "pptr-tips",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lidiia92/pptr-tips.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lidiia92/pptr-tips/issues"
+  },
+  "homepage": "https://github.com/Lidiia92/pptr-tips#readme",
+  "dependencies": {
+    "puppeteer": "^4.0.0"
+  }
+}
