@@ -73,17 +73,29 @@ const devices = require("puppeteer/DeviceDescriptors")["devicesMap"];
 
 // 6. MEASURING WEBSITE PERFORMANCE DATA
 
-(async () => {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto("https://www.example.com");
-  await page.waitForSelector("title");
+// (async () => {
+//   const browser = await puppeteer.launch();
+//   const page = await browser.newPage();
+//   await page.goto("https://www.example.com");
+//   await page.waitForSelector("title");
 
-  //Execute Navigation API withing the page context
-  const metrics = await page.evaluate(() => {
-    return JSON.stringify(window.performance);
-  });
-  console.log(JSON.parse(metrics));
+//   //Execute Navigation API withing the page context
+//   const metrics = await page.evaluate(() => {
+//     return JSON.stringify(window.performance);
+//   });
+//   console.log(JSON.parse(metrics));
+//   await browser.close();
+// })();
+
+//*****************************************************************/
+
+// 7. USING INCOGNITO BROWSER
+
+(async () => {
+  const browser = await puppeteer.launch({ headless: false });
+  const context = await browser.createIncognitoBrowserContext();
+  const page = await context.newPage();
+  await page.goto("https://www.example.com", { waitUntil: "networkidle0" });
   await browser.close();
 })();
 
